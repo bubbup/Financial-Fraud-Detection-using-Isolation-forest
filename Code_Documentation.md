@@ -76,7 +76,7 @@ Since the dataset does not include labels indicating which transactions are frau
 ##  Results & Evaluation
 
 - **Anomalies Detected**: 8,263 out of 20,000 transactions
-- **Percentage**: \( rac{8263}{20000} 	imes 100 = 41.3\% \)
+- **Percentage**: 41.3% 
 
 ###  Visual Validation
 
