@@ -36,18 +36,20 @@ README.md                                       # Project documentation
 
 - **Rows**: 20,000 transactions
 - **Columns/Features Used**:
-  - `amount`: Transaction amount
-  - `type`: Encoded transaction type
-  - `oldbalanceOrg`: Original sender balance
-  - `newbalanceOrig`: Sender balance after transaction
-  - `oldbalanceDest`: Recipient's balance before transaction
-  - `newbalanceDest`: Recipient's balance after transaction
+  - `TransactionID ` [int64]
+  - `AccountID `[int64]
+  - `TransactionType `[object]
+  - `Amount `[float64]
+  - `TransactionDate `[datetime64]
+  - `Season `[object]
+  - `customerID `[int64]
+  - `AccountType `[object]
+  - `Balance `[int64]
+  - `CreatedDate `[datetime64]
   - `TimeBetweenTransactions`: A custom column was created specifically for training to capture unique interactions between existing transactions
 
 - **Preprocessing**:
   - Missing value handling
-  - Feature scaling with `StandardScaler`
-  - Encoding categorical fields
   - Dropping irrelevant columns
 
 ---
@@ -58,12 +60,10 @@ README.md                                       # Project documentation
 from sklearn.ensemble import IsolationForest
 
 model = IsolationForest(
-    n_estimators=100,
     contamination='auto',  # Automatically determines the threshold based on the dataset
-    max_samples='auto',
     random_state=42
 )
-model.fit(X_train)
+model.fit(X)
 ```
 
 ###  Why `contamination='auto'`?
